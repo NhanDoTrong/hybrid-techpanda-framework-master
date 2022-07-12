@@ -1,5 +1,6 @@
 package cores.common;
 
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -16,7 +17,7 @@ public class BasePage_Executor {
      *
      * @param url
      */
-    public void openPageUrl(WebDriver driver , String url) {
+    public void openPageUrl(WebDriver driver, String url) {
         driver.get(url);
     }
 
@@ -130,8 +131,7 @@ public class BasePage_Executor {
      */
     public void switchToWindowByID(WebDriver driver, String expectedID) {
         Set<String> listID = driver.getWindowHandles();
-        for (String id : listID
-        ) {
+        for (String id : listID) {
             if (!id.equals(expectedID)) {
                 driver.switchTo().window(id);
             }
@@ -147,8 +147,7 @@ public class BasePage_Executor {
      */
     public void switchtoWindowByTitle(WebDriver driver, String expectedTitle) {
         Set<String> listID = driver.getWindowHandles();
-        for (String id : listID
-        ) {
+        for (String id : listID) {
             driver.switchTo().window(id);
             if (driver.getTitle().equals(expectedTitle)) {
                 break;
@@ -166,8 +165,7 @@ public class BasePage_Executor {
      */
     public void closeAllWindowWithoutParent(WebDriver driver, String parentID) {
         Set<String> listID = driver.getWindowHandles();
-        for (String id : listID
-        ) {
+        for (String id : listID) {
             if (!id.equals(parentID)) {
                 driver.switchTo().window(id);
                 driver.close();
@@ -226,8 +224,8 @@ public class BasePage_Executor {
      * @param locator
      */
 
-    public void waitForElementClickable(WebDriver driver, String locator) {
-         new WebDriverWait(driver, timeOutlnSeconds).until(ExpectedConditions.elementToBeClickable(getLocatorByXpath(locator)));
+    public WebElement waitForElementClickable(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, timeOutlnSeconds).until(ExpectedConditions.elementToBeClickable(getWebElement(driver, locator)));
     }
 
     /**
@@ -257,7 +255,7 @@ public class BasePage_Executor {
      * @param locator
      */
     public void clickToElement(WebDriver driver, String locator) {
-                getWebElement(driver,locator).click();
+        waitForElementClickable(driver, locator).click();
     }
 
     /**
@@ -292,7 +290,7 @@ public class BasePage_Executor {
      * @param dataValue
      */
     public void sendKeyToElement(WebDriver driver, String locator, String dataValue) {
-        waitForElementVisible(driver,locator);
+        waitForElementVisible(driver, locator);
         WebElement element = getWebElement(driver, locator);
         element.clear();
         element.sendKeys(dataValue);
@@ -347,8 +345,7 @@ public class BasePage_Executor {
         clickToElement(driver, parentLocator);
         new WebDriverWait(driver, timeOutlnSeconds).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getLocatorByXpath(childrenLocator)));
         List<WebElement> listItem = getListElements(driver, childrenLocator);
-        for (WebElement tempElement : listItem
-        ) {
+        for (WebElement tempElement : listItem) {
             if (tempElement.getText().equals(expectedText)) {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", getWebElement(driver, childrenLocator));
                 tempElement.click();
@@ -449,7 +446,8 @@ public class BasePage_Executor {
         return getWebElement(driver, locator).isEnabled();
     }
 
-    /** Switch to Frame
+    /**
+     * Switch to Frame
      *
      * @param driver
      * @param locator
@@ -458,98 +456,111 @@ public class BasePage_Executor {
         driver.switchTo().frame(getWebElement(driver, locator));
     }
 
-    /** Switch to default Content
+    /**
+     * Switch to default Content
      *
      * @param driver
      * @param locator
      */
-    public void switchToDefaultContent(WebDriver driver, String locator){
+    public void switchToDefaultContent(WebDriver driver, String locator) {
         driver.switchTo().defaultContent();
     }
 
-    /** double Click by Actions
+    /**
+     * double Click by Actions
      *
      * @param driver
      * @param locator
      */
-    public void doubleClickToElement(WebDriver driver , String locator){
-        new Actions(driver).doubleClick(getWebElement(driver,locator)).perform();
+    public void doubleClickToElement(WebDriver driver, String locator) {
+        new Actions(driver).doubleClick(getWebElement(driver, locator)).perform();
     }
 
-    /** Hover by Actions
+    /**
+     * Hover by Actions
      *
      * @param driver
      * @param locator
      */
-    public void hoverMouseToElement(WebDriver driver , String locator){
-        new Actions(driver).moveToElement(getWebElement(driver,locator)).perform();
+    public void hoverMouseToElement(WebDriver driver, String locator) {
+        new Actions(driver).moveToElement(getWebElement(driver, locator)).perform();
     }
 
-    /** Right Click By Actions
+    /**
+     * Right Click By Actions
      *
      * @param driver
      * @param locator
      */
-    public void rightClick ( WebDriver driver , String locator){
-        new Actions(driver).contextClick(getWebElement(driver,locator)).perform();
+    public void rightClick(WebDriver driver, String locator) {
+        new Actions(driver).contextClick(getWebElement(driver, locator)).perform();
     }
 
-    /** Drag And Drop by Actions
+    /**
+     * Drag And Drop by Actions
      *
      * @param driver
      * @param sourceLocator
      * @param targetLocator
      */
-    public void dragAndDrop(WebDriver driver , String sourceLocator, String targetLocator){
-        new Actions(driver).dragAndDrop(getWebElement(driver,sourceLocator),getWebElement(driver,targetLocator)).perform();
+    public void dragAndDrop(WebDriver driver, String sourceLocator, String targetLocator) {
+        new Actions(driver).dragAndDrop(getWebElement(driver, sourceLocator), getWebElement(driver, targetLocator)).perform();
     }
 
-    /** SendKey board By Actions
+    /**
+     * SendKey board By Actions
      *
      * @param driver
      * @param locator
      * @param key
      */
-    public void sendKeyboardToElement(WebDriver driver , String locator , Keys key){
-        new Actions(driver).sendKeys(getWebElement(driver,locator),key).perform();
+    public void sendKeyboardToElement(WebDriver driver, String locator, Keys key) {
+        new Actions(driver).sendKeys(getWebElement(driver, locator), key).perform();
     }
 
-    /** click to Element By JavaScript
+    /**
+     * click to Element By JavaScript
      *
      * @param driver
      * @param locator
      */
-    public void clickToElementByJS(WebDriver driver , String locator){
-    ((JavascriptExecutor)driver).executeScript("arguments[0].click();",getWebElement(driver,locator));
-}
+    public void clickToElementByJS(WebDriver driver, String locator) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", getWebElement(driver, locator));
+    }
 
-    /**Scroll to Element By JS
+    /**
+     * Scroll to Element By JS
      *
      * @param driver
      * @param locator
      */
-    public void scrollToElementByJS(WebDriver driver ,String locator){
-    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",getWebElement(driver,locator));
-}
+    public void scrollToElementByJS(WebDriver driver, String locator) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getWebElement(driver, locator));
+    }
 
-    /** Remove Attribute in DOM
+    /**
+     * Remove Attribute in DOM
      *
      * @param driver
      * @param locator
      * @param attributeValue
      */
-    public void removeAttributeInDOM(WebDriver driver ,String locator, String attributeValue){
-    ((JavascriptExecutor)driver).executeScript("arguments[0].removeAttribute('"+attributeValue+"')",getWebElement(driver,locator));
-}
+    public void removeAttributeInDOM(WebDriver driver, String locator, String attributeValue) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('" + attributeValue + "')", getWebElement(driver, locator));
+    }
 
-    /** get Validation Message HTML5
+    /**
+     * get Validation Message HTML5
      *
      * @param driver
      * @param locator
      * @return
      */
-    public String getElementValidationMessage(WebDriver driver , String locator){
-    return (String) ((JavascriptExecutor)driver).executeScript("return arguments[0].validationMessage;",getWebElement(driver,locator));
-}
+    public String getElementValidationMessage(WebDriver driver, String locator) {
+        return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", getWebElement(driver, locator));
+    }
+
     private long timeOutlnSeconds = 30;
+
+
 }

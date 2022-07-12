@@ -33,7 +33,7 @@ public class Level_02_Apply_BasePage_Part_II_Teacher {
 
     @BeforeMethod
     public void beforeMethod() {
-        basePage.openPageUrl(driver, "http://live.techpanda.org/");
+        basePage.openPageUrl(driver,"http://live.techpanda.org/");
         basePage.clickToElement(driver,"//div[@class='footer']//a[text()='My Account']");
     }
 

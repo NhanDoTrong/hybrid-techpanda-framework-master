@@ -11,8 +11,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -27,7 +25,7 @@ public class Level_06_Page_Generator_Teacher_Part_III extends BaseTest{
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
         driver.get("http://live.techpanda.org/");
-        homePageObject = PageGeneratorManager.getHomePage(driver);
+        homePageObject = PageGeneratorManager.openHomePage(driver);
     }
    @Test
     public void TC_01_LoginWithEmptyEmailAndPassword()  {
