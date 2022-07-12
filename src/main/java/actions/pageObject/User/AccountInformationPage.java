@@ -1,8 +1,9 @@
 package actions.pageObject.User;
 
+import actions.pageObject.navigation.UserSideBarMyAccountPageObject;
 import org.openqa.selenium.WebDriver;
 
-public class AccountInformationPage extends actions.pageObject.navigation.SideBarMyAccountPageObject{
+public class AccountInformationPage extends UserSideBarMyAccountPageObject {
     WebDriver driver;
 
     public AccountInformationPage(WebDriver driver) {

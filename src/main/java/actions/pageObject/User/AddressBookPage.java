@@ -1,8 +1,9 @@
 package actions.pageObject.User;
 
+import actions.pageObject.navigation.UserSideBarMyAccountPageObject;
 import org.openqa.selenium.WebDriver;
 
-public class AddressBookPage extends actions.pageObject.navigation.SideBarMyAccountPageObject{
+public class AddressBookPage extends UserSideBarMyAccountPageObject {
     WebDriver driver;
 
     public AddressBookPage(WebDriver driver) {

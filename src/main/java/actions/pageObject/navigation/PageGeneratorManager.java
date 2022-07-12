@@ -1,15 +1,18 @@
-package actions.pageObject.User;
+package actions.pageObject.navigation;
 
+import actions.pageObject.Admin.AdminLoginPageObject;
+import actions.pageObject.Admin.AdminManageCustomerPageObject;
+import actions.pageObject.User.*;
 import org.openqa.selenium.WebDriver;
 
 public class PageGeneratorManager {
 
-    public static HomePageObject openHomePage(WebDriver driver) {
-        return new HomePageObject(driver);
+    public static UserHomePageObject openUserHomePage(WebDriver driver) {
+        return new UserHomePageObject(driver);
     }
 
-    public static LoginPageObject openLoginPage(WebDriver driver) {
-        return new LoginPageObject(driver);
+    public static UserLoginPageObject openUserLoginPage(WebDriver driver) {
+        return new UserLoginPageObject(driver);
     }
 
     public static MyDashBoardPageObject openMyDashBoard(WebDriver driver) {
@@ -55,8 +58,21 @@ public class PageGeneratorManager {
     public static NewsletterSubscriptionsPage openNewsletterSubscriptionsPage(WebDriver driver) {
         return new NewsletterSubscriptionsPage(driver);
     }
-    public static MyDownLoadableProductsPage openMyDownLoadableProductsPage(WebDriver driver) {
+    public static AdvancedSearchPage openAdvancedSearchPage(WebDriver driver) {
+        return new AdvancedSearchPage(driver);
+    }
+    public static ContactUsPage openContactUsPage(WebDriver driver) {
+        return new ContactUsPage(driver);
+    }    public static CustomerServicePage openCustomerServicePage(WebDriver driver) {
+        return new CustomerServicePage(driver);
+    }    public static MyDownLoadableProductsPage openMyDownLoadableProductsPage(WebDriver driver) {
         return new MyDownLoadableProductsPage(driver);
+    }
+    public static AdminManageCustomerPageObject openAdminManageCustomerPageObject(WebDriver driver) {
+        return new AdminManageCustomerPageObject(driver);
+    }
+    public static AdminLoginPageObject openAdminLoginPageObject(WebDriver driver) {
+        return new AdminLoginPageObject(driver);
     }
 
 }

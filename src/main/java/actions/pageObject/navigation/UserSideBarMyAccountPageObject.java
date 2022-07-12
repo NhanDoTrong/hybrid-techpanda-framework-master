@@ -4,10 +4,10 @@ import actions.pageObject.User.*;
 import interfaces.pageUIs.User.SideBarMyAccountPageUI;
 import org.openqa.selenium.WebDriver;
 
-public class SideBarMyAccountPageObject extends cores.common.BasePage_Executor{
+public class UserSideBarMyAccountPageObject extends cores.common.BasePage_Executor{
     WebDriver driver;
 
-    public SideBarMyAccountPageObject(WebDriver driver) {
+    public UserSideBarMyAccountPageObject(WebDriver driver) {
         this.driver = driver;
     }
 

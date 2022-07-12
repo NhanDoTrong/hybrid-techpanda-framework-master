@@ -1,19 +1,20 @@
 package actions.pageObject.User;
 
+import actions.pageObject.navigation.PageGeneratorManager;
 import interfaces.pageUIs.User.HomePageUI;
 import org.openqa.selenium.WebDriver;
 
-public class HomePageObject extends cores.common.BasePage_Executor {
+public class UserHomePageObject extends cores.common.BasePage_Executor {
     WebDriver driver;
 
-    public HomePageObject(WebDriver driver) {
+    public UserHomePageObject(WebDriver driver) {
         super();
         this.driver = driver;
     }
 
-    public LoginPageObject clickToMyAccountLink() {
+    public UserLoginPageObject clickToMyAccountLink() {
         waitForElementClickable( driver,HomePageUI.MY_ACCOUNT_LINK);
         getWebElement(driver,HomePageUI.MY_ACCOUNT_LINK).click();
-        return PageGeneratorManager.openLoginPage(driver);
+        return PageGeneratorManager.openUserLoginPage(driver);
     }
 }

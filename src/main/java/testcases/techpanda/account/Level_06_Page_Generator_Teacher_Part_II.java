@@ -1,7 +1,7 @@
 package testcases.techpanda.account;
 
-import actions.pageObject.User.HomePageObject;
-import actions.pageObject.User.LoginPageObject;
+import actions.pageObject.User.UserHomePageObject;
+import actions.pageObject.User.UserLoginPageObject;
 import actions.pageObject.User.MyDashBoardPageObject;
 import cores.common.BaseTest;
 import org.openqa.selenium.WebDriver;
@@ -15,15 +15,15 @@ import static org.testng.Assert.assertTrue;
 
 public class Level_06_Page_Generator_Teacher_Part_II extends BaseTest{
     WebDriver driver;
-    HomePageObject homePageObject;
-    LoginPageObject loginPageObject;
+    UserHomePageObject homePageObject;
+    UserLoginPageObject loginPageObject;
     MyDashBoardPageObject myDashBoardPageObject;
     @Parameters({"browser"})
     @BeforeClass
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
         driver.get("http://live.techpanda.org/");
-        homePageObject =new HomePageObject(driver);
+        homePageObject =new UserHomePageObject(driver);
 
     }
 

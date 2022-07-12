@@ -1,6 +1,6 @@
 package testcases.techpanda.account;
-import actions.pageObject.User.HomePageObject;
-import actions.pageObject.User.LoginPageObject;
+import actions.pageObject.User.UserHomePageObject;
+import actions.pageObject.User.UserLoginPageObject;
 import actions.pageObject.User.MyDashBoardPageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,8 +16,8 @@ public class Level_03_Page_Object_Patten_Teacher_Part_I {
 
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");
-    HomePageObject homePageObject;
-    LoginPageObject loginPageObject;
+    UserHomePageObject homePageObject;
+    UserLoginPageObject loginPageObject;
     MyDashBoardPageObject myDashBoardPageObject;
 
     @BeforeClass
@@ -28,8 +28,8 @@ public class Level_03_Page_Object_Patten_Teacher_Part_I {
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://live.techpanda.org/");
-        homePageObject = new HomePageObject(driver);
-        loginPageObject = new LoginPageObject(driver);
+        homePageObject = new UserHomePageObject(driver);
+        loginPageObject = new UserLoginPageObject(driver);
 
     }
 

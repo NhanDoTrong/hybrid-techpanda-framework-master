@@ -1,20 +1,16 @@
 package testcases.techpanda.account;
 
-import actions.pageObject.User.HomePageObject;
-import actions.pageObject.User.LoginPageObject;
+import actions.pageObject.User.UserHomePageObject;
+import actions.pageObject.User.UserLoginPageObject;
 import actions.pageObject.User.MyDashBoardPageObject;
 import cores.common.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -24,8 +20,8 @@ public class Level_04_Multiple_Browser_Teacher_Part_I extends cores.common.BaseT
 
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");
-    HomePageObject homePageObject;
-    LoginPageObject loginPageObject;
+    UserHomePageObject homePageObject;
+    UserLoginPageObject loginPageObject;
     MyDashBoardPageObject myDashBoardPageObject;
     BaseTest baseTest;
 
@@ -34,15 +30,15 @@ public class Level_04_Multiple_Browser_Teacher_Part_I extends cores.common.BaseT
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
         driver.get("http://live.techpanda.org/");
-        homePageObject = new HomePageObject(driver);
-        loginPageObject = new LoginPageObject(driver);
+        homePageObject = new UserHomePageObject(driver);
+        loginPageObject = new UserLoginPageObject(driver);
 
     }
 
 
     @Test
     public void TC_01_LoginWithEmptyEmailAndPassword()  {
-        homePageObject = new HomePageObject(driver);
+        homePageObject = new UserHomePageObject(driver);
         homePageObject.clickToMyAccountLink();
         loginPageObject.inputToEmailAddressTextBox("");
         loginPageObject.inputToPasswordTextBox("");

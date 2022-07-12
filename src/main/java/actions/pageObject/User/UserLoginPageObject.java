@@ -1,12 +1,13 @@
 package actions.pageObject.User;
 
+import actions.pageObject.navigation.PageGeneratorManager;
 import interfaces.pageUIs.User.LoginPageUI;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPageObject extends cores.common.BasePage_Executor {
+public class UserLoginPageObject extends cores.common.BasePage_Executor {
     WebDriver driver;
 
-    public LoginPageObject(WebDriver driver) {
+    public UserLoginPageObject(WebDriver driver) {
         super();
         this.driver = driver;
     }

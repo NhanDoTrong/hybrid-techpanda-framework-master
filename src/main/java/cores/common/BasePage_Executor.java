@@ -1,6 +1,11 @@
 package cores.common;
 
 
+import actions.pageObject.Admin.AdminLoginPageObject;
+import actions.pageObject.User.UserLoginPageObject;
+import actions.pageObject.navigation.AdminHeaderPageObject;
+import actions.pageObject.navigation.PageGeneratorManager;
+import actions.pageObject.navigation.UserFooterContainerPageObject;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -559,8 +564,26 @@ public class BasePage_Executor {
     public String getElementValidationMessage(WebDriver driver, String locator) {
         return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", getWebElement(driver, locator));
     }
-
+    public boolean isPageLoadSuccess(WebDriver driver){
+        return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+    }
+    public boolean waitForJSandJQueryToLoad(WebDriver driver){
+        return (boolean) ((JavascriptExecutor) driver).executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
+    }
     private long timeOutlnSeconds = 30;
 
-
+    public UserFooterContainerPageObject getFooterContainerPageObject(WebDriver driver) {
+        return new UserFooterContainerPageObject(driver);
+    }
+    public AdminHeaderPageObject getAdminHeaderPageObject(WebDriver driver){
+        return new AdminHeaderPageObject(driver);
+    }
+    public UserLoginPageObject openUrlUserPage(WebDriver driver, String UserUrl){
+        openPageUrl(driver, UserUrl);
+        return PageGeneratorManager.openUserLoginPage(driver);
+    }
+    public AdminLoginPageObject openUrlAdminPage(WebDriver driver, String AdminUrl){
+        openPageUrl(driver, AdminUrl);
+        return PageGeneratorManager.openAdminLoginPageObject(driver);
+    }
 }

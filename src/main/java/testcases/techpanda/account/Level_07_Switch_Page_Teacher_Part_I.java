@@ -1,6 +1,7 @@
 package testcases.techpanda.account;
 
 import actions.pageObject.User.*;
+import actions.pageObject.navigation.PageGeneratorManager;
 import cores.common.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -13,8 +14,8 @@ import static org.testng.Assert.assertTrue;
 
 public class Level_07_Switch_Page_Teacher_Part_I extends BaseTest {
     WebDriver driver;
-    HomePageObject homePageObject;
-    LoginPageObject loginPageObject;
+    UserHomePageObject homePageObject;
+    UserLoginPageObject loginPageObject;
     MyDashBoardPageObject myDashBoardPageObject;
     MyOrdersPage myOrdersPage;
     MyProductReviewsPage myProductReviewsPage;
@@ -26,7 +27,7 @@ public class Level_07_Switch_Page_Teacher_Part_I extends BaseTest {
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
         driver.get("http://live.techpanda.org/");
-        homePageObject = PageGeneratorManager.openHomePage(driver);
+        homePageObject = PageGeneratorManager.openUserHomePage(driver);
     }
 //   @Test
 //    public void TC_01_LoginWithEmptyEmailAndPassword()  {

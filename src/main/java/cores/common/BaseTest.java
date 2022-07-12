@@ -14,7 +14,7 @@ import static org.openqa.selenium.remote.BrowserType.FIREFOX;
 
 public class BaseTest {
     WebDriver driver;
-    public WebDriver getBrowserDriver(String browserName) {
+    protected WebDriver getBrowserDriver(String browserName) {
         browserList1 browserList = browserList1.valueOf(browserName.toUpperCase());
         switch (browserList) {
             case CHROME:
@@ -32,6 +32,28 @@ public class BaseTest {
         }
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        return driver;
+    }
+    protected WebDriver getBrowserDriver(String browserName , String urlValue) {
+        browserList1 browserList = browserList1.valueOf(browserName.toUpperCase());
+        switch (browserList) {
+            case CHROME:
+                driver = WebDriverManager.chromedriver().create();
+//                WebDriverManager.chromedriver().browserVersion("101.0.4951.67").setup();
+                break;
+            case FIREFOX:
+                driver =  WebDriverManager.firefoxdriver().create();
+                break;
+            case EDGE:
+                driver = WebDriverManager.edgedriver().create();
+                break;
+            default:
+                throw new RuntimeException("Browser name is not  valid");
+        }
+        driver.manage().window().maximize();
+        driver.get(urlValue);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         return driver;
     }
     protected int getRandomNumber() {
