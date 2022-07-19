@@ -12,9 +12,9 @@ public class DashboardPageObject extends cores.common.BasePage_Factory_Teacher{
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    @FindBy(how = How.XPATH,using = "//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]")
+    @FindBy(how = How.XPATH,using = "xpath=//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]")
     WebElement ContactInformationByUserName;
-    @FindBy(how = How.XPATH,using = "//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'automationfc.vn@gmail.com')]")
+    @FindBy(how = How.XPATH,using = "xpath=//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'automationfc.vn@gmail.com')]")
     WebElement ContactInformationByEmail;
     public WebElement getContactInformationByUserName(){
         return waitForElementVisible(driver, ContactInformationByUserName);

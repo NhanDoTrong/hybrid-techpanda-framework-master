@@ -15,23 +15,23 @@ public class LoginPageObject extends cores.common.BasePage_Factory_Teacher {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how = How.XPATH, using = "//input[@id='email']")
+    @FindBy(how = How.XPATH, using = "xpath=//input[@id='email']")
     WebElement EmailTextBox;
 
-    @FindBy(how = How.XPATH, using = "//input[@id='pass']")
+    @FindBy(how = How.XPATH, using = "xpath=//input[@id='pass']")
     WebElement PasswordTextBox;
 
-    @FindBy(how = How.XPATH, using = "//button[@id='send2']")
+    @FindBy(how = How.XPATH, using = "xpath=//button[@id='send2']")
     WebElement LoginButton;
-    @FindBy(how = How.XPATH, using = "//div[@id='advice-required-entry-email']")
+    @FindBy(how = How.XPATH, using = "xpath=//div[@id='advice-required-entry-email']")
     WebElement EmailAddressEmptyErrorMessage;
-    @FindBy(how = How.XPATH, using = "//div[@id='advice-required-entry-pass']")
+    @FindBy(how = How.XPATH, using = "xpath=//div[@id='advice-required-entry-pass']")
     WebElement PasswordEmptyErrorMessage;
-    @FindBy(how = How.XPATH, using = "//div[@id='advice-validate-email-email']")
+    @FindBy(how = How.XPATH, using = "xpath=//div[@id='advice-validate-email-email']")
     WebElement EmailAddressInvalidErrorMessage;
-    @FindBy(how = How.XPATH, using = "//li[@class='error-msg']//span")
+    @FindBy(how = How.XPATH, using = "xpath=//li[@class='error-msg']//span")
     WebElement emailPasswordIncorrectErrorMessage;
-    @FindBy(how = How.XPATH, using = "//div[@id='advice-validate-password-pass']")
+    @FindBy(how = How.XPATH, using = "xpath=//div[@id='advice-validate-password-pass']")
     WebElement passwordINValidErrorMessage;
 
     public void inputToEmailAddressTextBox(String dataValue) {

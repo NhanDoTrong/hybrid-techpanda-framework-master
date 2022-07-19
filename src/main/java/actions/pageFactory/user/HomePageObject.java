@@ -17,7 +17,7 @@ public class HomePageObject extends cores.common.BasePage_Factory_Teacher {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    @FindBy(how = How.XPATH,using = "//div[@class='footer']//a[@title='My Account']")
+    @FindBy(how = How.XPATH,using = "Xpath=//div[@class='footer']//a[@title='My Account']")
     WebElement myAccountLink;
     public void clickToMyAccountLink() {
         clickToElement(driver,myAccountLink);

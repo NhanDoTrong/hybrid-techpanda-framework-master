@@ -25,7 +25,7 @@ public class Level_05_Page_Factory_Patten_Teacher_Part_I extends cores.common.Ba
     @Parameters({"browser"})
     @BeforeClass
     public void beforeClass(String browserName) {
-        driver = getBrowserDriver(browserName);
+        driver = getBrowserDrivers(browserName);
         driver.get("http://live.techpanda.org/");
         homePageObject = new HomePageObject(driver);
 

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="WebDriverManager">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/WebDriverManager" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/WebDriverManager" recursive="false" />
+  </library>
+</component>

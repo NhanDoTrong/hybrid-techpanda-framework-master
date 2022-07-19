@@ -21,7 +21,7 @@ public class Level_06_Page_Generator_Teacher_Part_II extends BaseTest{
     @Parameters({"browser"})
     @BeforeClass
     public void beforeClass(String browserName) {
-        driver = getBrowserDriver(browserName);
+        driver = getBrowserDrivers(browserName);
         driver.get("http://live.techpanda.org/");
         homePageObject =new UserHomePageObject(driver);
 

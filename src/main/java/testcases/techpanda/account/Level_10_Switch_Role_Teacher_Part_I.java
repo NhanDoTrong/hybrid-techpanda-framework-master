@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
-import cores.common.BasePage_Executor;
 
 public class Level_10_Switch_Role_Teacher_Part_I extends BaseTest {
     WebDriver driver;
@@ -32,7 +31,7 @@ public class Level_10_Switch_Role_Teacher_Part_I extends BaseTest {
         this.adminUrl = adminUrl;
         this.userUrl = userUrl;
         // Chay thang nao thi truyen thang do
-        driver = getBrowserDriver(browserName,userUrl);
+        driver = getBrowserDrivers(browserName);
         userHomePageObject = PageGeneratorManager.openUserHomePage(driver);
     }
 
@@ -48,12 +47,12 @@ public class Level_10_Switch_Role_Teacher_Part_I extends BaseTest {
 
     @Test
     public void TC_07_SideBar_Page() {
-        myOrdersPage = myDashBoardPageObject.openMyOrdersPage();
-        myApplicationsPage = myOrdersPage.openMyApplicationsPage();
-        myProductReviewsPage = myApplicationsPage.openMyProductReviewsPage();
-        myOrdersPage = myProductReviewsPage.openMyOrdersPage();
-        myProductReviewsPage = myOrdersPage.openMyProductReviewsPage();
-        myApplicationsPage = myProductReviewsPage.openMyApplicationsPage();
+//        myOrdersPage = myDashBoardPageObject.openMyOrdersPage();
+//        myApplicationsPage = myOrdersPage.openMyApplicationsPage();
+//        myProductReviewsPage = myApplicationsPage.openMyProductReviewsPage();
+//        myOrdersPage = myProductReviewsPage.openMyOrdersPage();
+//        myProductReviewsPage = myOrdersPage.openMyProductReviewsPage();
+//        myApplicationsPage = myProductReviewsPage.openMyApplicationsPage();
     }
     @Test
     public void TC_08_Footer_Page() {
