@@ -36,4 +36,6 @@ public class GlobalConstants {
 
     // HTML Report Folder
     public static final String PEPORTNG_SCREENSHOT_PATH = PROJECT_PATH+ File.separator + "reportTestNGScreenShot" + File.separator;
+    public static final String EXTENT_PATH = PROJECT_PATH + File.separator +"htmlExtent" + File.separator;
+    public static final String JAVA_VERSION = System.getProperty("java.version");
 }

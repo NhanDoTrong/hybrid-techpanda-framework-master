@@ -28,7 +28,6 @@
       <root url="jar://$PROJECT_DIR$/WebDriverManager/jcl-over-slf4j-1.7.30.jar!/" />
       <root url="jar://$PROJECT_DIR$/WebDriverManager/jsoup-1.14.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/WebDriverManager/jsr305-3.0.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/WebDriverManager/slf4j-api-1.7.32.jar!/" />
       <root url="jar://$PROJECT_DIR$/WebDriverManager/webdrivermanager-5.0.2.jar!/" />
     </CLASSES>
     <JAVADOC />

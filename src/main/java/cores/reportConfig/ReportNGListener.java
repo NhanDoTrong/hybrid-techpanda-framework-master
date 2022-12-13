@@ -38,16 +38,16 @@ public class ReportNGListener implements ITestListener {
 
 
         // Chụp Hình và Đưa vào Report HTML
-        String screenshotPath = captureScreenshot(webDriver, iTestResult.getName()); // trả về tên testcase);
+        String screenshotPath = captureScreenshotasBase64(webDriver, iTestResult.getName()); // trả về tên testcase);
         // Trạng thái của testcase
         Reporter.getCurrentTestResult();
         // Add vào report của testNG ---> Tạo thành 1 đường link
-        Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
+         Reporter.log("<br><a target=\"_blank\" href=\"data:image/png;base64," + screenshotPath + "\">" + "<img src=\"data:image/png;base64," + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
         // Set lại cái này = null để những tescase sau không bị ảnh hưởng
         Reporter.setCurrentTestResult(null);
     }
 
-    public String captureScreenshot(WebDriver driver, String screenshotName) {
+    public String captureScreenshotasFile(WebDriver driver, String screenshotName) {
         try {
             Calendar calendar = Calendar.getInstance();// Lấy ra thời gian để đặt tên
             SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
@@ -59,6 +59,11 @@ public class ReportNGListener implements ITestListener {
             System.out.println("Exception while taking screenshot: " + e.getMessage());
             return e.getMessage();
         }
+    }
+
+    public String captureScreenshotasBase64(WebDriver driver, String screenshotName){
+        String screenshotBase64 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+        return screenshotBase64;
     }
     @Override
     public void onTestSkipped(ITestResult iTestResult) {

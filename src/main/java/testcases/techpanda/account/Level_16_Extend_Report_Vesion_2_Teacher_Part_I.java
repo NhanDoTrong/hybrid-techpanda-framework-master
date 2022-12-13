@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import static org.testng.AssertJUnit.*;
 
 
-public class Level_15_reportNG_Teacher_Part_I extends BaseTest {
+public class Level_16_Extend_Report_Vesion_2_Teacher_Part_I extends BaseTest {
     WebDriver driver;
     UserHomePageObject homePageObject;
     UserLoginPageObject loginPageObject;

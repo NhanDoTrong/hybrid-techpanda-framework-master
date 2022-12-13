@@ -3,9 +3,12 @@ package cores.common;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +18,7 @@ public class BaseTest {
 
     WebDriver driver;
     protected final Log log;
+
     public BaseTest() {
         log = LogFactory.getLog(getClass());
     }
@@ -115,7 +119,27 @@ public class BaseTest {
         return status;
     }
 
+    @BeforeSuite
+    public void beforSuite() {
+        deleteFilesInReportTestNG();
+    }
+
     public WebDriver getDriver() {
         return this.driver;
+    }
+
+    //Xóa file trong thư mục reportNG ( file chụp ảnh)
+    private void deleteFilesInReportTestNG() {
+        try {
+            File file = new File(GlobalConstants.PEPORTNG_SCREENSHOT_PATH);
+            File[] listOfFiles = file.listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    new File(listOfFiles[i].toString()).delete();
+                }
+            }
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
     }
 }

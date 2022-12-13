@@ -194,7 +194,7 @@ public class BasePage_Executor {
     // Quy ước convention của By locator là : id=/class=/name=/xpath=/css=
     // id=/Id= / ID= / iD=
     // Hàm này chỉ sử dụng cho class này thôi nên có thể để Accept modify = Private
-    private By getByLocator(String locator) {
+        private By getByLocator(String locator) {
         By by = null;
         if(locator.startsWith("id=")||locator.startsWith("ID=")||locator.startsWith("Id=")){
             by = By.id(locator.substring(3));
